@@ -35,6 +35,9 @@ model.fit(
 
 test_score = model.score(X_test, y_test)
 
+test_pred = model.predict(X_test)
+train_pred = model.predict(X_train)
+
 with mlflow.start_run(run_name="Elastic Binary Tree") as run:
     mlflow.log_params(model.best_params_)
     mlflow.log_metrics({"train_mse": model.best_score_, "test_mse": test_score})
