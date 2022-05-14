@@ -16,7 +16,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
-      - dbdata:/var/lib/mysql
+      - ./data/mlflow/db:/var/lib/mysql
 
   mlflow-server:
     restart: always
@@ -32,7 +32,9 @@ services:
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
     expose:
       - "5000"
-    command: mlflow server --backend-store-uri mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE} --default-artifact-root s3://mlflow_bucket/mlflow/ --host 0.0.0.0
+    command: mlflow server --backend-store-uri mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@db:3306/${MYSQL_DATABASE} --default-artifact-root /app/mlruns --host 0.0.0.0
+    volumes:
+      - ./data/mlflow/mlruns:/app/mlruns
 
   nginx:
     restart: always
@@ -51,6 +53,3 @@ networks:
         driver: bridge
     backend:
         driver: bridge
-
-volumes:
-    dbdata:
