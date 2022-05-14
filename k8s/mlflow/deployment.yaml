@@ -1,0 +1,30 @@
+-------------------
+apiVersion: apps/v1
+kind: Deployment
+namespace: mlflow-serving
+metadata:
+  name: mlflow-app
+  labels:
+    app: mlflow-app
+spec:
+  selector:
+    matchLabels:
+      app: mlflow-app
+  template:
+    metadata:
+      labels:
+        app: mlflow-app
+    spec:
+      containers:
+      - name: mlflow-serving-MODEL
+        image: MODEL
+        ports:
+          - containerPort: 8080
+        args:
+        volumeMounts:
+        - name: config
+          mountPath: /config
+      volumes:
+      - name: config
+        configMap:
+          name: configmap

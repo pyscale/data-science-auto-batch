@@ -1,0 +1,14 @@
+-------------------
+apiVersion: apps/v1
+kind: Service
+metadata:
+  namespace: mlflow-serving
+  name: mlflow-app
+  labels:
+    run: mlflow-app
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    run: mlflow-app

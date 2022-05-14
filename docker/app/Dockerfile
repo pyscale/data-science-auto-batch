@@ -6,12 +6,13 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 WORKDIR /app
 
-ENV MLFLOW_DB=sqlite:////app/mydb.sqlite
-ENV MLFLOW_ARTIFACT=/app/mlruns
+ENV MLFLOW_DB=sqlite:////app/mlflow/mydb.sqlite
+ENV MLFLOW_ARTIFACT=/app/mlflow/mlruns
 
 COPY Makefile .
 COPY pyproject.toml .
 
+RUN make init
 RUN make install
 
 COPY src .

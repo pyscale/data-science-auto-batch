@@ -10,5 +10,5 @@ install:
 test:
 	pytest
 
-docker.up:
-	docker-compose up -d --build
+mlflow.server.up:
+	mlflow server --backend-store-uri sqlite:///data/mlflow/db/mydb.sqlite --default-artifact-root data/mlflow/mlruns
