@@ -2,11 +2,14 @@
 This is an example of how to train this model using the tools provided in this repo
 """
 import os
+import tempfile
+
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
+
 import pandas as pd
+import plotly.express as px
 import mlflow
-import tempfile
 
 from pyskoptimize.base import MLPipelineStateModel
 
@@ -17,7 +20,7 @@ mlflow.set_experiment(experiment_name="Elastic Binary Tree")
 
 mlflow.set_tracking_uri(os.environ.get('MLFLOW_DB', 'sqlite:///data/mlflow/db/mydb.sqlite'))
 
-mlflow.autolog()
+mlflow.autolog(silent=True)
 mlflow.xgboost.autolog()
 
 cal_housing = fetch_california_housing()
@@ -38,9 +41,28 @@ test_score = model.score(X_test, y_test)
 test_pred = model.predict(X_test)
 train_pred = model.predict(X_train)
 
-with mlflow.start_run(run_name="Elastic Binary Tree") as run:
+with mlflow.start_run(run_name="Elastic Binary Tree - 3") as run:
     mlflow.log_params(model.best_params_)
     mlflow.log_metrics({"train_mse": model.best_score_, "test_mse": test_score})
+
+    train_fig = px.scatter(
+        x=y_train,
+        y=train_pred,
+        marginal_x="histogram",
+        marginal_y="histogram",
+        labels={'x': 'actual targets', 'y': 'predicted targets'}
+    )
+
+    test_fig = px.scatter(
+        x=y_test,
+        y=test_pred,
+        marginal_x="histogram",
+        marginal_y="histogram",
+        labels={'x': 'actual targets', 'y': 'predicted targets'}
+    )
+
+    mlflow.log_figure(train_fig, "train_results.html")
+    mlflow.log_figure(train_fig, "test_results.html")
 
     with tempfile.TemporaryDirectory() as tmp_dir:
         mlflow.sklearn.save_model(model.best_estimator_, tmp_dir)
