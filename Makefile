@@ -10,3 +10,5 @@ install:
 test:
 	pytest
 
+docker.up:
+	docker-compose up -d --build
