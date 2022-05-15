@@ -1,0 +1,76 @@
+{
+  "model": {
+    "name": "xgboost.sklearn.XGBClassifier",
+    "params": [
+      {
+        "name": "n_estimators",
+        "lowInt": 100,
+        "highInt": 1000
+      },
+      {
+        "name": "lambda",
+        "low": 1e-16,
+        "high": 1e16,
+        "log_scale": true
+      },
+      {
+        "name": "alpha",
+        "low": 1e-16,
+        "high": 1e16,
+        "log_scale": true
+      },
+      {
+        "name": "eta",
+        "low": 1e-16,
+        "high": 1.0,
+        "log_scale": true
+      },
+      {
+        "name": "max_depth",
+        "lowInt": 1,
+        "highInt": 10
+      },
+      {
+        "name": "subsample",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bytree",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bylevel",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bynode",
+        "low": 0.5,
+        "high": 1.0
+      }
+    ]
+  },
+  "scoring": "f1",
+  "preprocess": [
+    {
+      "name": "features",
+      "features": ["mean radius", "mean texture", "mean perimeter", "mean area",
+       "mean smoothness", "mean compactness", "mean concavity",
+       "mean concave points", "mean symmetry", "mean fractal dimension",
+       "radius error", "texture error", "perimeter error", "area error",
+       "smoothness error", "compactness error", "concavity error",
+       "concave points error", "symmetry error",
+       "fractal dimension error", "worst radius", "worst texture",
+       "worst perimeter", "worst area", "worst smoothness",
+       "worst compactness", "worst concavity", "worst concave points",
+       "worst symmetry", "worst fractal dimension"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.PowerTransformer"
+        }
+      ]
+    }
+  ]
+}

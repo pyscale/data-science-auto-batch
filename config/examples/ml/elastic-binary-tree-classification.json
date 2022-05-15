@@ -1,0 +1,509 @@
+{
+  "model": {
+    "name": "sklearn.linear_model.LogisticRegression",
+    "params": [
+      {
+        "name": "solver",
+        "categories": ["saga"]
+      },
+      {
+        "name": "penalty",
+        "categories": ["elasticnet"]
+      },
+      {
+        "name": "C",
+        "low": 1e-16,
+        "high": 1e16,
+        "log_scale": true
+      },
+      {
+        "name": "l1_ratio",
+        "low": 1e-10,
+        "high": 0.9999999999
+      }
+    ]
+  },
+  "scoring": "f1",
+  "preprocess": [
+    {
+      "name": "featurePod1",
+      "features": ["mean radius"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod2",
+      "features": ["mean texture"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod3",
+      "features": ["mean perimeter"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod4",
+      "features": ["mean area"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod5",
+      "features": ["mean smoothness"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod7",
+      "features": ["mean compactness"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod8",
+      "features": ["mean concavity"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod9",
+      "features": ["mean concave points"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod10",
+      "features": ["mean symmetry"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod11",
+      "features": ["mean fractal dimension"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod12",
+      "features": ["radius error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod13",
+      "features": ["texture error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod14",
+      "features": ["perimeter error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod15",
+      "features": ["area error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod16",
+      "features": ["smoothness error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod17",
+      "features": ["compactness error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod18",
+      "features": ["concavity error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod19",
+      "features": ["concave points error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod20",
+      "features": ["symmetry error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod21",
+      "features": ["fractal dimension error"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod22",
+      "features": ["worst radius"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod23",
+      "features": ["worst texture"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod24",
+      "features": ["worst perimeter"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod25",
+      "features": ["worst area"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod26",
+      "features": ["worst smoothness"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod27",
+      "features": ["worst compactness"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod28",
+      "features": ["worst concavity"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod29",
+      "features": ["worst concave points"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod30",
+      "features": ["worst symmetry"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "featurePod31",
+      "features": ["worst fractal dimension"],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.KBinsDiscretizer",
+          "params": [
+            {
+              "name": "n_bins",
+              "lowInt": 2,
+              "highInt": 99
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

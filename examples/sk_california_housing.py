@@ -14,7 +14,7 @@ import mlflow
 from pyskoptimize.base import MLPipelineStateModel
 
 
-config = MLPipelineStateModel.parse_file("config/examples/ml/elastic-binary-tree.json")
+config = MLPipelineStateModel.parse_file("config/examples/ml/elastic-binary-tree-regression.json")
 
 mlflow.set_experiment(experiment_name="Elastic Binary Tree")
 
