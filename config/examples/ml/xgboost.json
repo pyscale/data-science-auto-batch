@@ -1,0 +1,73 @@
+{
+  "targetTransformer": {
+    "name": "sklearn.preprocessing.PowerTransformer"
+  },
+  "model": {
+    "name": "xgboost.sklearn.XGBRegressor",
+    "params": [
+      {
+        "name": "n_estimators",
+        "lowInt": 100,
+        "highInt": 1000
+      },
+      {
+        "name": "lambda",
+        "low": 1e-16,
+        "high": 1e16,
+        "log_scale": true
+      },
+      {
+        "name": "alpha",
+        "low": 1e-16,
+        "high": 1e16,
+        "log_scale": true
+      },
+      {
+        "name": "eta",
+        "low": 1e-16,
+        "high": 1.0,
+        "log_scale": true
+      },
+      {
+        "name": "max_depth",
+        "lowInt": 1,
+        "highInt": 10
+      },
+      {
+        "name": "subsample",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bytree",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bylevel",
+        "low": 0.5,
+        "high": 1.0
+      },
+      {
+        "name": "colsample_bynode",
+        "low": 0.5,
+        "high": 1.0
+      }
+    ]
+  },
+  "scoring": "neg_mean_squared_error",
+  "preprocess": [
+    {
+      "name": "features",
+      "features": [
+        "MedInc", "HouseAge", "AveRooms",
+        "Population", "AveOccup", "Latitude", "Longitude"
+      ],
+      "pipeline": [
+        {
+          "name": "sklearn.preprocessing.PowerTransformer"
+        }
+      ]
+    }
+  ]
+}
