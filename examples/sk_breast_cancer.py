@@ -55,7 +55,7 @@ with mlflow.start_run(run_name="Elastic Binary Tree Clf") as run:
     )
 
     mlflow.log_figure(train_fig, "train_results.html")
-    mlflow.log_figure(train_fig, "test_results.html")
+    mlflow.log_figure(test_fig, "test_results.html")
 
     with tempfile.TemporaryDirectory() as tmp_dir:
         mlflow.sklearn.save_model(model.best_estimator_, tmp_dir)
