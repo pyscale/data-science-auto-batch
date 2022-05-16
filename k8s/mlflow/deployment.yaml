@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mlflow-serving-MODEL
-        image: MODEL
+        image: "{{cookiecutter.project_name}}"
         ports:
           - containerPort: 8080
         args:
