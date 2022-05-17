@@ -19,6 +19,12 @@ Docker is there as an option if you need to containerize your solution for train
 
 For information regarding how to integrate with mlflow, please go to the `data/mlflow` folder. 
 
+If you want some model explanation packages, please consider:
+
+    1. https://github.com/SeldonIO/alibi
+    2. https://github.com/slundberg/shap
+    3. https://research.google/teams/brain/pair/
+
 ## Deployment
 
 If you trained your model and used MLFlow, then follow these linked commands:

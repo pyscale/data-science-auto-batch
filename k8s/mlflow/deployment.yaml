@@ -21,10 +21,3 @@ spec:
         ports:
           - containerPort: 8080
         args:
-        volumeMounts:
-        - name: config
-          mountPath: /config
-      volumes:
-      - name: config
-        configMap:
-          name: configmap
